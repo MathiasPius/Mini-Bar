@@ -9,7 +9,7 @@ ln -s ${SCRIPTPATH}/down /tmp/leftwm-theme-down
 
 picom &> /dev/null &
 
-leftwm-command "LoadTheme $SCRIPTPATH/theme.toml"
+leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
 eww daemon --config "${SCRIPTPATH}"/eww &
 
