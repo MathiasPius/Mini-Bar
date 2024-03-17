@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+leftwm-command "UnloadTheme"
+
+pkill picom
+pkill eww
+#kill $(ps aux | grep "layout.sh" | grep -v grep | awk '{print $2}')
