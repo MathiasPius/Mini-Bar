@@ -1,0 +1,8 @@
+definitions_version = 1
+
+[[theme]]
+name = "MyLeftwmTheme"
+repository = "https://github.com/MathiasPius/my-leftwm-theme"
+commit = "*"
+version = "0.0.0"
+leftwm_versions = ">0.3.0, <0.4.0"
