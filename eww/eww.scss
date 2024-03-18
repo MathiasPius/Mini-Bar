@@ -1,16 +1,65 @@
+$bg-color: RGBA(10,10,10,0.85);
+$fg-color: #c7c7d1;
+$accent-color: #ffa666;
+
+$bar-color: rgba(10, 10, 10, 1.0);
+$busy-color: rgba(60, 60, 120, 1.0);
+$active-color: rgba(80, 140, 80, 1.0);
+$attention-color: #ffa666;
+
+$corner-radius: 10px;
+
 * {
   all: unset; //Unsets everything so you can style everything from scratch
 }
 
-//Global Styles
-.bar1, .bar2 {
-  background-color: #3a3a3a;
-  color: #b0b4bc;
-  padding: 4px;
+.bar, .invisible {
+  background-color: transparent;
+}
+
+.workspaces {
+  background-color: $bar-color;
+  padding-left: 10px;
+  border-top-left-radius: $corner-radius;
+}
+
+.workspace {
+  font-family: Fira Code Nerd Font;
+  font-size: 10pt;
+  font-weight: bold;
+  background-color: $bar-color;
+  margin: 0px;
+  padding-top: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.active {
+  background-color: $active-color;
+}
+
+.urgent {
+  background-color: $attention-color;
+}
+
+.busy {
+  background-color: $busy-color;
+}
+
+.upper-corner {
+  background-color: transparent;
+  border-bottom-right-radius: $corner-radius;
+  box-shadow: 0 $corner-radius 0 0 $bar-color;
+}
+
+.left-corner {
+  background-color: transparent;
+  border-bottom-right-radius: $corner-radius;
+  box-shadow: $corner-radius 0 0 0 $bar-color;
 }
 
 // Styles on classes (see eww.yuck for more information)
-
+/*
 .sidestuff slider {
   all: unset;
   color: #ffd5cd;
@@ -52,3 +101,4 @@
 .workspaces button:hover {
   color: #D35D6E;
 }
+*/

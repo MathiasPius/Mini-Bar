@@ -11,7 +11,7 @@ picom &> /dev/null &
 
 leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
-eww daemon --config "${SCRIPTPATH}"/eww &
+eww daemon --debug --config "${SCRIPTPATH}"/eww &
 
-eww open --config "${SCRIPTPATH}"/eww bar1
-eww open --config "${SCRIPTPATH}"/eww bar2
+eww open --config "${SCRIPTPATH}"/eww --screen 0 primary --arg target-monitor=1
+eww open --config "${SCRIPTPATH}"/eww --screen 1 secondary --arg target-monitor=0
