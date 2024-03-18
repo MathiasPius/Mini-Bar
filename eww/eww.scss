@@ -17,6 +17,10 @@ $corner-radius: 10px;
   background-color: transparent;
 }
 
+.bar {
+  opacity: 0.6;
+}
+
 .workspaces {
   background-color: $bar-color;
   padding-left: 10px;
