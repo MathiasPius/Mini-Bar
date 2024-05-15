@@ -11,53 +11,53 @@ $corner-radius: 10px;
 $border-style: dotted;
 
 * {
-  all: unset; //Unsets everything so you can style everything from scratch
+  all: unset
+}
 
-  .bar,
-  .invisible {
-    background-color: transparent;
-  }
+.bar,
+.invisible {
+  background-color: transparent;
+}
 
-  .bar {
-    opacity: 0.6;
-    background-color: $bar-color;
-    border-top: 2px $border-style $busy-color;
-    border-right: 2px $border-style $busy-color;
-    border-left: 2px $border-style $busy-color;
-    border-top-left-radius: $corner-radius;
-    border-top-right-radius: $corner-radius;
-    font-family: Fira Code Nerd Font;
-    font-size: 10pt;
-    font-weight: bold;
-  }
+.bar {
+  opacity: 0.6;
+  background-color: $bar-color;
+  border-top: 2px $border-style $busy-color;
+  border-right: 2px $border-style $busy-color;
+  border-left: 2px $border-style $busy-color;
+  border-top-left-radius: $corner-radius;
+  border-top-right-radius: $corner-radius;
+  font-family: Fira Code Nerd Font;
+  font-size: 10pt;
+  font-weight: bold;
+}
 
-  .time {
-    border-top-right-radius: $corner-radius;
-    padding-left: 4px;
-    padding-top: 3px;
-    padding-left: 4px;
-    padding-right: 4px;
-  }
+.time {
+  border-top-right-radius: $corner-radius;
+  padding-left: 4px;
+  padding-top: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
 
-  .workspace:first-child {
-    border-top-left-radius: $corner-radius;
-  }
+.workspace:first-child {
+  border-top-left-radius: $corner-radius;
+}
 
-  .workspace {
-    padding-top: 3px;
-    padding-left: 4px;
-    padding-right: 4px;
-  }
+.workspace {
+  padding-top: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
 
-  .active {
-    background-color: $active-color;
-  }
+.active {
+  background-color: $active-color;
+}
 
-  .urgent {
-    background-color: $attention-color;
-  }
+.urgent {
+  background-color: $attention-color;
+}
 
-  .busy {
-    background-color: $busy-color;
-  }
+.busy {
+  background-color: $busy-color;
 }

@@ -57,3 +57,18 @@
     (workspaces :target-monitor target-monitor)
     (box :class "time" time)))
     
+
+(defwindow tab [target-monitor]
+    :class "bar"
+    :halign center
+    :valign center
+    :monitor screen
+    :windowtype "dock"
+    :geometry (geometry
+    	:x "0"
+    	:y "0"
+    	:height "10px"
+    	:anchor "bottom center")
+  (bar
+    (workspaces :target-monitor target-monitor)
+    (box :class "time" time)))
