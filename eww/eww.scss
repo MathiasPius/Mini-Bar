@@ -21,9 +21,19 @@ $corner-radius: 10px;
   opacity: 0.6;
 }
 
+
+.time {
+  background-color: $bar-color;
+  margin: 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 3px;
+  padding-bottom: 2px;
+}
+
 .workspaces {
   background-color: $bar-color;
-  padding-left: 10px;
+//  padding-left: 10px;
   border-top-left-radius: $corner-radius;
 }
 
@@ -50,59 +60,3 @@ $corner-radius: 10px;
   background-color: $busy-color;
 }
 
-.upper-corner {
-  background-color: transparent;
-  border-bottom-right-radius: $corner-radius;
-  box-shadow: 0 $corner-radius 0 0 $bar-color;
-}
-
-.left-corner {
-  background-color: transparent;
-  border-bottom-right-radius: $corner-radius;
-  box-shadow: $corner-radius 0 0 0 $bar-color;
-}
-
-// Styles on classes (see eww.yuck for more information)
-/*
-.sidestuff slider {
-  all: unset;
-  color: #ffd5cd;
-}
-
-.metric scale trough highlight {
-  all: unset;
-  background-color: #D35D6E;
-  color: #000000;
-  border-radius: 10px;
-}
-.metric scale trough {
-  all: unset;
-  background-color: #4e4e4e;
-  border-radius: 50px;
-  min-height: 3px;
-  min-width: 50px;
-  margin-left: 10px;
-  margin-right: 20px;
-}
-.metric scale trough highlight {
-  all: unset;
-  background-color: #D35D6E;
-  color: #000000;
-  border-radius: 10px;
-}
-.metric scale trough {
-  all: unset;
-  background-color: #4e4e4e;
-  border-radius: 50px;
-  min-height: 3px;
-  min-width: 50px;
-  margin-left: 10px;
-  margin-right: 20px;
-}
-.label-ram {
-  font-size: large;
-}
-.workspaces button:hover {
-  color: #D35D6E;
-}
-*/

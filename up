@@ -7,6 +7,8 @@ if [ -f "/tmp/leftwm-theme-down" ]; then
 fi
 ln -s ${SCRIPTPATH}/down /tmp/leftwm-theme-down
 
+feh --bg-fill ${SCRIPTPATH}/wallpaper.png
+
 picom &> /dev/null &
 
 leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
