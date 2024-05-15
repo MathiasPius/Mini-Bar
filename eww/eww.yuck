@@ -27,37 +27,6 @@
            :initial '{"workspaces":[{"layout":"","tags":[{"name":"","index":0,"mine":false,"busy":false,"visible":false,"urgent":false}]}]}'
            "leftwm state")
 
-(defwindow p [target-monitor]
-    :class "bar"
-    :halign center
-    :valign center
-    :monitor screen
-    :windowtype "dock"
-    :geometry (geometry
-    	:x "0"
-    	:y "0"
-    	:height "10px"
-    	:anchor "bottom center")
-  (bar
-    (workspaces :target-monitor target-monitor)
-    (box :class "time" time)))
-
-(defwindow s [target-monitor]
-    :class "bar"
-    :halign center
-    :valign center
-    :monitor screen
-    :windowtype "dock"
-    :geometry (geometry
-    	:x "0"
-    	:y "0"
-	    :height "10px"
-	    :anchor "bottom center")
-  (bar
-    (workspaces :target-monitor target-monitor)
-    (box :class "time" time)))
-    
-
 (defwindow tab [target-monitor]
     :class "bar"
     :halign center
