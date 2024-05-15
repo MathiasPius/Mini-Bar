@@ -4,6 +4,7 @@
   `date "+%a %d/%m/%y %H:%M"`)
 
 (defwidget bar []
+
   (box :orientation "horizontal"
        :class "bar invisible"
        :space-evenly false
@@ -12,7 +13,6 @@
 (defwidget workspaces [target-monitor]
   (box :orientation "horizontal"
        :class "workspaces"
-    (box
       (for tag in '${wmstate.workspaces[target-monitor].tags}'
         (button
           :class {
@@ -21,14 +21,16 @@
       	    tag.busy    ? "workspace busy" : "workspace"
           }
 	        :onclick "leftwm-command \"SendWorkspaceToTag ${target-monitor} ${tag.index}\""
-      	  {tag.name})))))
+      	  {tag.name}))))
 
 (deflisten wmstate 
            :initial '{"workspaces":[{"layout":"","tags":[{"name":"","index":0,"mine":false,"busy":false,"visible":false,"urgent":false}]}]}'
            "leftwm state")
 
-(defwindow primary [target-monitor]
+(defwindow p [target-monitor]
     :class "bar"
+    :halign center
+    :valign center
     :monitor screen
     :windowtype "dock"
     :geometry (geometry
@@ -40,8 +42,10 @@
     (workspaces :target-monitor target-monitor)
     (box :class "time" time)))
 
-(defwindow secondary [target-monitor]
+(defwindow s [target-monitor]
     :class "bar"
+    :halign center
+    :valign center
     :monitor screen
     :windowtype "dock"
     :geometry (geometry

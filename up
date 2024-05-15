@@ -15,5 +15,5 @@ leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
 eww daemon --debug --config "${SCRIPTPATH}"/eww &
 
-eww open --config "${SCRIPTPATH}"/eww --screen 0 primary --arg target-monitor=1
-eww open --config "${SCRIPTPATH}"/eww --screen 1 secondary --arg target-monitor=0
+eww open --config "${SCRIPTPATH}"/eww --screen 0 p --arg target-monitor=1
+eww open --config "${SCRIPTPATH}"/eww --screen 1 s --arg target-monitor=0
