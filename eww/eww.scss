@@ -27,13 +27,14 @@ $border-style: dotted;
   border-left: 2px $border-style $busy-color;
   border-top-left-radius: $corner-radius;
   border-top-right-radius: $corner-radius;
+  font-family: Fira Code Nerd Font;
+  font-size: 10pt;
+  font-weight: bold;
 }
 
 
 .time {
-  font-family: Fira Code Nerd Font;
-  font-size: 10pt;
-  font-weight: bold;
+
   border-top-right-radius: $corner-radius;
   margin: 0px;
   padding-left: 4px;
@@ -47,9 +48,6 @@ $border-style: dotted;
 }
 
 .workspace {
-  font-family: Fira Code Nerd Font;
-  font-size: 10pt;
-  font-weight: bold;
   margin: 0px;
   padding-top: 3px;
   padding-left: 4px;

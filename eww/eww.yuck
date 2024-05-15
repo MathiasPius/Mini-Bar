@@ -1,7 +1,7 @@
 (defpoll time
   :interval "1s"
-  :initial-value "00:00"
-  `date "%a %d/%m/%y +%H:%M"`)
+  :initial-value ""
+  `date "+%a %d/%m/%y %H:%M"`)
 
 (defwidget bar []
   (box :orientation "horizontal"
@@ -36,9 +36,9 @@
     	:y "0"
     	:height "10px"
     	:anchor "bottom center")
-    (bar
-      (workspaces :target-monitor target-monitor)
-      (box :class "time" time)))
+  (bar
+    (workspaces :target-monitor target-monitor)
+    (box :class "time" time)))
 
 (defwindow secondary [target-monitor]
     :class "bar"
@@ -51,6 +51,5 @@
 	    :anchor "bottom center")
   (bar
     (workspaces :target-monitor target-monitor)
-    (box :class "time" time)
-    ))
+    (box :class "time" time)))
     
