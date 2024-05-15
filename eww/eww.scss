@@ -1,39 +1,48 @@
-$bg-color: RGBA(10,10,10,0.85);
+$bg-color: RGBA(10, 10, 10, 0.85);
 $fg-color: #c7c7d1;
 $accent-color: #ffa666;
 
-$bar-color: rgba(10, 10, 10, 1.0);
+$bar-color: rgba(50, 50, 50, 1.0);
 $busy-color: rgba(60, 60, 120, 1.0);
 $active-color: rgba(80, 140, 80, 1.0);
 $attention-color: #ffa666;
 
 $corner-radius: 10px;
+$border-style: dotted;
 
 * {
   all: unset; //Unsets everything so you can style everything from scratch
 }
 
-.bar, .invisible {
+.bar,
+.invisible {
   background-color: transparent;
 }
 
 .bar {
   opacity: 0.6;
+  background-color: $bar-color;
+  border-top: 2px $border-style $busy-color;
+  border-right: 2px $border-style $busy-color;
+  border-left: 2px $border-style $busy-color;
+  border-top-left-radius: $corner-radius;
+  border-top-right-radius: $corner-radius;
 }
 
 
 .time {
-  background-color: $bar-color;
+  font-family: Fira Code Nerd Font;
+  font-size: 10pt;
+  font-weight: bold;
+  border-top-right-radius: $corner-radius;
   margin: 0px;
   padding-left: 4px;
-  padding-right: 4px;
   padding-top: 3px;
-  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
-.workspaces {
-  background-color: $bar-color;
-//  padding-left: 10px;
+.workspace:first-child {
   border-top-left-radius: $corner-radius;
 }
 
@@ -41,7 +50,6 @@ $corner-radius: 10px;
   font-family: Fira Code Nerd Font;
   font-size: 10pt;
   font-weight: bold;
-  background-color: $bar-color;
   margin: 0px;
   padding-top: 3px;
   padding-left: 4px;
@@ -59,4 +67,3 @@ $corner-radius: 10px;
 .busy {
   background-color: $busy-color;
 }
-

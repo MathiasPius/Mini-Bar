@@ -1,7 +1,7 @@
 (defpoll time
   :interval "1s"
   :initial-value "00:00"
-  `date "+%H:%M"`)
+  `date "%a %d/%m/%y +%H:%M"`)
 
 (defwidget bar []
   (box :orientation "horizontal"
@@ -16,9 +16,9 @@
       (for tag in '${wmstate.workspaces[target-monitor].tags}'
         (button
           :class {
+            tag.urgent  ? "workspace urgent" :
 	          tag.mine    ? "workspace active" :
-      	    tag.busy    ? "workspace busy" :
-      	    tag.urgent  ? "workspace urgent" : "workspace"
+      	    tag.busy    ? "workspace busy" : "workspace"
           }
 	        :onclick "leftwm-command \"SendWorkspaceToTag ${target-monitor} ${tag.index}\""
       	  {tag.name})))))
@@ -35,7 +35,7 @@
     	:x "0"
     	:y "0"
     	:height "10px"
-    	:anchor "bottom right")
+    	:anchor "bottom center")
     (bar
       (workspaces :target-monitor target-monitor)
       (box :class "time" time)))
@@ -48,7 +48,7 @@
     	:x "0"
     	:y "0"
 	    :height "10px"
-	    :anchor "bottom right")
+	    :anchor "bottom center")
   (bar
     (workspaces :target-monitor target-monitor)
     (box :class "time" time)
