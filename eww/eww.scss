@@ -1,6 +1,4 @@
-$bg-color: RGBA(10, 10, 10, 0.85);
 $fg-color: #c7c7d1;
-$accent-color: #ffa666;
 
 $bar-color: rgba(50, 50, 50, 1.0);
 $busy-color: rgba(60, 60, 120, 1.0);
@@ -33,8 +31,9 @@ $border-style: dotted;
 }
 
 .time {
+  color: $fg-color;
+  font-weight: normal;
   border-top-right-radius: $corner-radius;
-  padding-left: 4px;
   padding-top: 3px;
   padding-left: 4px;
   padding-right: 4px;
