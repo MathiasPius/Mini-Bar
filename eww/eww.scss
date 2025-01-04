@@ -6,7 +6,7 @@ $active-color: rgba(80, 140, 80, 1.0);
 $attention-color: #ffa666;
 
 $corner-radius: 10px;
-$border-style: dotted;
+$border-style: solid;
 
 * {
   all: unset
@@ -18,7 +18,7 @@ $border-style: dotted;
 }
 
 .bar {
-  opacity: 0.8;
+  opacity: 1.0;
   background-color: $bar-color;
   border-top: 2px $border-style $busy-color;
   border-right: 2px $border-style $busy-color;
@@ -27,36 +27,59 @@ $border-style: dotted;
   border-top-right-radius: $corner-radius;
   font-family: Fira Code Nerd Font;
   font-size: 10pt;
-  font-weight: bold;
+
+  // Spacing between elements.
+  >*+* {
+    padding-top: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 2px;
+  }
+
+  .workspace {
+    font-weight: bold;
+
+    // Pad workspace tiles.
+    * {
+      padding-top: 3px;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+  }
+
+  .workspace:first-child {
+    border-top-left-radius: $corner-radius;
+  }
+
+  .active {
+    background-color: $active-color;
+  }
+
+  .urgent {
+    background-color: $attention-color;
+  }
+
+  .busy {
+    background-color: $busy-color;
+  }
 }
 
-.time {
-  color: $fg-color;
-  font-weight: normal;
-  border-top-right-radius: $corner-radius;
-  padding-top: 3px;
-  padding-left: 4px;
-  padding-right: 4px;
-}
+.metric {
+  scale {
+    border-radius: 50px;
 
-.workspace:first-child {
-  border-top-left-radius: $corner-radius;
-}
+    trough {
+      background-color: #4e4e4e;
+      min-height: 6px;
+      min-width: 50px;
+      margin-left: 5px;
+      margin-right: 10px;
 
-.workspace {
-  padding-top: 3px;
-  padding-left: 4px;
-  padding-right: 4px;
-}
+      highlight {
+        background-color: #D35D6E;
+        color: #000000;
+      }
+    }
+  }
 
-.active {
-  background-color: $active-color;
-}
-
-.urgent {
-  background-color: $attention-color;
-}
-
-.busy {
-  background-color: $busy-color;
 }
