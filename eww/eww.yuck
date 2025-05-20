@@ -1,5 +1,3 @@
-
-
 (defpoll time
   :interval "10s"
   :initial "Non 00/00/00 00:00"
