@@ -12,6 +12,7 @@ def main():
     charge_icons = {
         'Charging': '🔌',
         'Not charging': '🔋',
+        'Full': '🔋',
         'Discharging': '🗲'
     }
 
