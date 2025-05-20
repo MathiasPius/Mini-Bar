@@ -1,15 +1,33 @@
 
 
 (defpoll time
-  :interval "1s"
-  :initial-value ""
+  :interval "10s"
+  :initial "Non 00/00/00 00:00"
   `date "+%a %d/%m/%y %H:%M"`)
 
-(defpoll volume :interval "1s"
+(defpoll volume
+  :interval "1s"
+  :initial "100"
   "scripts/volume.sh")
 
-(defpoll battery :interval "1s"
+(defpoll battery_charge
+  :interval "1s"
+  :initial "100"
   "scripts/battery.py -c")
+
+(defpoll battery_icon
+  :interval "1s"
+  :initial "?"
+  "scripts/battery.py -i")
+
+(defpoll battery_visibility
+  :interval "1s"
+  :initial "true"
+  "scripts/battery.py -s")
+
+(deflisten wmstate 
+  :initial '{"workspaces":[{"layout":"","tags":[{"name":"","index":0,"mine":false,"busy":false,"visible":false,"urgent":false}]}]}'
+  "leftwm state")
 
 (defwidget bar []
   (box :orientation "horizontal"
@@ -30,10 +48,6 @@
 	        :onclick "leftwm-command \"SendWorkspaceToTag ${target-monitor} ${tag.index}\""
       	  {tag.name}))))
 
-(deflisten wmstate 
-           :initial '{"workspaces":[{"layout":"","tags":[{"name":"","index":0,"mine":false,"busy":false,"visible":false,"urgent":false}]}]}'
-           "leftwm state")
-
 (defwindow tab [target-monitor]
     :class "bar"
     :halign center
@@ -48,13 +62,21 @@
   (bar
     (workspaces :target-monitor target-monitor)
     (box :orientation "h"
-       :class "metric"
-       :space-evenly false
+      :class "metric"
+      :space-evenly false
       (box "🎧")
-      (scale :min 0
-            :max 101
-            :value volume
-            :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"))
+      (scale
+        :min 0
+        :max 101
+        :value volume
+        :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")
+
+      (box battery_icon)
+      (scale
+        :visible battery_visibility
+        :min 0
+        :max 100
+        :value battery_charge))
 ;    (box
 ;      :visible {objectlength(EWW_BATTERY?:{})>0}
 ;      (circular-progress

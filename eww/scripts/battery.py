@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
-
-# All credit to: https://github.com/jrachele/eww-workspace-bar
-
-import subprocess
 import sys
+
 
 def main():
     if len(sys.argv) != 2:
@@ -12,30 +9,28 @@ def main():
 
     option = sys.argv[1]
 
-    battery_icons = [
-        '',
-        '',
-        '',
-        '',
-        '',
-    ]
-    charge_icons = [
-        '',
-        '',
-    ]
+    charge_icons = {
+        'Charging': '🔌',
+        'Not charging': '🔋',
+        'Discharging': '🗲'
+    }
 
-    result = subprocess.run(["cat", "/sys/class/power_supply/BAT0/capacity"], capture_output=True)
-    capacity = int(result.stdout)
+    capacity = int(open("/sys/class/power_supply/BAT0/capacity").read())
+    status = open("/sys/class/power_supply/BAT0/status").read().strip()
 
     if (option == '-c'):
-        icon = battery_icons[4] if capacity == 100 else battery_icons[capacity // 20]
-        print(f"{icon}    {capacity}%")
+        print(capacity)
         exit(0)
-    elif (option == '-s'):
-        result = subprocess.run(["cat", "/sys/class/power_supply/BAT0/status"], capture_output=True)
-        status = str(result.stdout)[2:-3]
-        icon = charge_icons[0] if status == "Charging" else charge_icons[1]
-        print(f"{icon}  {status} ")
+
+    if (option == '-s'):
+        if capacity > 90:
+            print("false")
+        else:
+            print("true")
+        exit(0)
+
+    if (option == '-i'):
+        print(charge_icons.get(status, "❓"))
         exit(0)
 
     print("Usage: battery.py [-c | -s]")
